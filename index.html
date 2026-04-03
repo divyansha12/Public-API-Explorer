@@ -8,11 +8,111 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1><span>Public API</span><br>Playground</h1>
-      <p class="sub">Fire real HTTP requests to four public APIs — no keys, no setup, just live data.</p>
-    </header>
+
+<div id="cur"></div>
+
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+<div class="orb o4"></div>
+
+<div class="wrap">
+
+  <header>
+    <div class="pill"><div class="pdot"></div>4 Live APIs Connected</div>
+    <h1><span>Public API</span><br>Playground</h1>
+    <p class="sub">Fire real HTTP requests to four public APIs — no keys, no setup, just live data.</p>
+  </header>
+
+  <div class="grid">
+
+    <!-- DOG -->
+    <div class="card cd">
+      <div class="ctop">
+        <div class="cicon">🐶</div>
+        <div class="cmeta">
+          <div class="cname">Dog Finder</div>
+          <div class="curl">dog.ceo/api/breeds/image/random</div>
+        </div>
+        <div class="spill"><div class="sd" id="sd-dog"></div><span id="st-dog">idle</span></div>
+      </div>
+      <div class="brow">
+        <button class="btn" id="btn-dog" onclick="fetchDog(event)"><span class="bt">▶ Get Dog</span></button>
+        <button class="btn" id="btn-cpd" onclick="copyDog()" style="display:none"><span class="bt">⎘ Copy URL</span></button>
+      </div>
+      <div class="rbox" id="res-dog">
+        <p class="ph">Fetch a random pup<br>and see their breed 🐾</p>
+      </div>
+    </div>
+    <!-- JOKE -->
+    <div class="card cj">
+      <div class="ctop">
+        <div class="cicon">😂</div>
+        <div class="cmeta">
+          <div class="cname">Joke Generator</div>
+          <div class="curl">official-joke-api.appspot.com/random_joke</div>
+        </div>
+        <div class="spill"><div class="sd" id="sd-joke"></div><span id="st-joke">idle</span></div>
+      </div>
+      <div class="brow">
+        <button class="btn" id="btn-joke" onclick="fetchJoke(event)"><span class="bt">▶ Get Joke</span></button>
+        <button class="btn" id="btn-nj" onclick="fetchJoke(event)" style="display:none"><span class="bt">↻ Next</span></button>
+      </div>
+      <div class="rbox" id="res-joke">
+        <p class="ph">Tap for a setup<br>+ punchline 😄</p>
+      </div>
+    </div>
+
+    <!-- USER -->
+    <div class="card cu">
+      <div class="ctop">
+        <div class="cicon">👤</div>
+        <div class="cmeta">
+          <div class="cname">Random User</div>
+          <div class="curl">randomuser.me/api/</div>
+        </div>
+        <div class="spill"><div class="sd" id="sd-user"></div><span id="st-user">idle</span></div>
+      </div>
+      <div class="brow">
+        <button class="btn" id="btn-user" onclick="fetchUser(event)"><span class="bt">▶ Get User</span></button>
+        <button class="btn" id="btn-nu" onclick="fetchUser(event)" style="display:none"><span class="bt">↻ Next</span></button>
+      </div>
+      <div class="rbox" id="res-user">
+        <p class="ph">Meet a stranger<br>from anywhere 🌍</p>
+      </div>
+    </div>
+
+    <!-- POSTS -->
+    <div class="card cp">
+      <div class="ctop">
+        <div class="cicon">📝</div>
+        <div class="cmeta">
+          <div class="cname">JSONPlaceholder</div>
+          <div class="curl">jsonplaceholder.typicode.com/posts/:id</div>
+        </div>
+        <div class="spill"><div class="sd" id="sd-posts"></div><span id="st-posts">idle</span></div>
+      </div>
+      <div class="brow">
+        <button class="btn" id="btn-posts" onclick="fetchPosts(event)"><span class="bt">▶ Get Posts</span></button>
+        <button class="btn" id="btn-np" onclick="fetchPosts(event)" style="display:none"><span class="bt">↻ Next</span></button>
+      </div>
+      <div class="rbox" id="res-posts">
+        <p class="ph">Load placeholder<br>blog posts 📄</p>
+      </div>
+    </div>
+
   </div>
+
+  <footer>
+    Vanilla HTML · CSS · JS &nbsp;·&nbsp; All APIs are public &amp; free &nbsp;·&nbsp;
+    Deploy to <a href="https://vercel.com" target="_blank">Vercel</a> or
+    <a href="https://netlify.com" target="_blank">Netlify</a>
+    <div style="opacity:0.25; font-size:9px; margin-top:12px;">Premium API Explorer • v1.4</div>
+  </footer>
+</div>
+
+<div id="toast"></div>
+
+<script src="app.js"></script>
 </body>
 </html>
